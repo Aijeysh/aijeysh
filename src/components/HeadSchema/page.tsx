@@ -1,29 +1,45 @@
-"use client";
-
-import Script from "next/script";
-
 export default function HeadSchema() {
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Aijeysh Sharma",
+      alternateName: "Sharma Aijeysh",
+      url: "https://www.jagbijaya.com.np",
+      logo: "https://www.jagbijaya.com.np/Aijeysh_Sharma.png",
+      sameAs: [
+        "https://www.linkedin.com/in/sharmaaijeysh/",
+        "https://x.com/aijeysh",
+        "https://www.instagram.com/aijeysh",
+        "https://www.facebook.com/SharmaAijeysh",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Aijeysh Sharma",
+      alternateName: "Sharma Aijeysh",
+      url: "https://www.jagbijaya.com.np",
+      image: "https://www.jagbijaya.com.np/Aijeysh_Sharma.png",
+      jobTitle: "SEO Expert and Digital Marketing Strategist",
+      worksFor: {
+        "@type": "Organization",
+        name: "Aijeysh Sharma",
+        url: "https://www.jagbijaya.com.np",
+      },
+      sameAs: [
+        "https://www.linkedin.com/in/sharmaaijeysh/",
+        "https://x.com/aijeysh",
+        "https://www.instagram.com/aijeysh",
+        "https://www.facebook.com/SharmaAijeysh",
+      ],
+    },
+  ];
+
   return (
-    <Script
-      id="organization-schema"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Aijeysh Sharma",
-          alternateName: "Sharma Aijeysh",
-          url: "https://www.jagbijaya.com.np",
-          logo: "https://www.jagbijaya.com.np/Aijeysh_Sharma.png",
-          sameAs: [
-            "https://www.linkedin.com/in/sharmaaijeysh/",
-            "https://www.facebook.com/SharmaAijeysh",
-            "https://www.instagram.com/aijeysh",
-            "https://x.com/aijeysh",
-          ],
-        }),
-      }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
 }

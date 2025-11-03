@@ -18,26 +18,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata : Metadata ={
- icons: {
-  icon: [
+export const metadata: Metadata = {
+  icons: {
+    icon: [
       { url: "/favicon.ico" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
-    manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest",
   other: {
     "google-site-verification": "1eub7JhhkFaJrh9K_jnMvi9Vh-tXigiW2YCjppwv7-8",
   },
-} 
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <HeadSchema />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <HeadSchema/>
+
         {/* Global Google Analytics */}
         <Script
           async
@@ -57,9 +60,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `,
           }}
         />
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
