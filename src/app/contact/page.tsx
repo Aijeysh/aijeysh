@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     "Digital Marketing Expert",
     "SEO Strategist",
   ],
-  metadataBase: new URL("https://jagbijaya.com.np"),
+  metadataBase: new URL("https://www.jagbijaya.com.np"),
   openGraph: {
     title: "Contact Aijeysh | SEO Expert in Kathmandu, Nepal",
     description:
       "Work with Aijeysh Sharma — Kathmandu-based SEO and Digital Marketing Expert helping brands grow with proven strategies.",
-    url: "https://jagbijaya.com.np/contact",
+    url: "https://www.jagbijaya.com.np/contact",
     siteName: "Aijeysh Sharma",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     locale: "en_US",
@@ -52,7 +52,7 @@ export default function ContactPage() {
             "@type": "Person",
             name: "Aijeysh Sharma",
             jobTitle: "SEO Expert",
-            url: "https://jagbijaya.com.np",
+            url: "https://www.jagbijaya.com.np",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Kathmandu",

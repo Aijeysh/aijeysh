@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     "SEO Consultant",
     "Local SEO Kathmandu",
   ],
-  metadataBase: new URL("https://jagbijaya.com.np"),
+  metadataBase: new URL("https://www.jagbijaya.com.np"),
   openGraph: {
     title: "Aijeysh Sharma — SEO Expert in Kathmandu",
     description:
       "SEO and Digital Marketing services by Aijeysh Sharma — on-page SEO, technical audits, content strategy and local SEO in Kathmandu, Nepal.",
-    url: "https://jagbijaya.com.np/",
+    url: "https://www.jagbijaya.com.np/",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     siteName: "Aijeysh Sharma",
     type: "website",
@@ -98,11 +98,11 @@ export default async function HomePage() {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Aijeysh Sharma",
-            url: "https://jagbijaya.com.np",
+            url: "https://www.jagbijaya.com.np",
             jobTitle: "SEO Expert",
             sameAs: [
               "https://www.linkedin.com/in/sharmaaijeysh",
-              "https://twitter.com/aijeysh",
+              "https://x.com/aijeysh",
             ],
             description:
               "Aijeysh Sharma (Sharma Aijeysh) is an SEO Expert and Digital Marketing strategist based in Kathmandu, Nepal.",
