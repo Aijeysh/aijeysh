@@ -6,6 +6,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar/page";
 import Footer from "@/components/Footer/page";
+import HeadSchema from "@/components/HeadSchema/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <HeadSchema/>
         {/* Global Google Analytics */}
         <Script
           async

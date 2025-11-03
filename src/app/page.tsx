@@ -101,7 +101,7 @@ export default async function HomePage() {
             url: "https://jagbijaya.com.np",
             jobTitle: "SEO Expert",
             sameAs: [
-              "https://www.linkedin.com/in/aijeyshsharma",
+              "https://www.linkedin.com/in/sharmaaijeysh",
               "https://twitter.com/aijeysh",
             ],
             description:
