@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 /* 🐶 Bork Catcher: drag to move the puppy, catch treats, dodge the bad stuff */
 
@@ -20,6 +20,43 @@ const GOOD = [
 const BAD = ["🧅", "🍫", "🧦"];
 
 const BARKS = ["bork!", "yum!", "nom!", "woof!", "arf!", "good boy!"];
+
+const BEST_KEY = "bork-best";
+const BEST_CHANGE_EVENT = "bork-best-change";
+let memoryBest = 0;
+
+function getBest() {
+  try {
+    const stored = Number(localStorage.getItem(BEST_KEY) || 0);
+    return Number.isFinite(stored) ? stored : 0;
+  } catch {
+    return memoryBest;
+  }
+}
+
+function getServerBest() {
+  return 0;
+}
+
+function subscribeToBest(callback: () => void) {
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === BEST_KEY || event.key === null) callback();
+  };
+  window.addEventListener("storage", onStorage);
+  window.addEventListener(BEST_CHANGE_EVENT, callback);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(BEST_CHANGE_EVENT, callback);
+  };
+}
+
+function saveBest(value: number) {
+  memoryBest = value;
+  try {
+    localStorage.setItem(BEST_KEY, String(value));
+  } catch {}
+  window.dispatchEvent(new Event(BEST_CHANGE_EVENT));
+}
 
 const OVER_LINES = [
   "The puppy is full and judging you.",
@@ -138,7 +175,7 @@ export default function PuppyGamePage() {
   const [phase, setPhase] = useState<"menu" | "playing" | "over">("menu");
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
-  const [best, setBest] = useState(0);
+  const best = useSyncExternalStore(subscribeToBest, getBest, getServerBest);
 
   const game = useRef({
     x: W / 2,
@@ -157,10 +194,6 @@ export default function PuppyGamePage() {
   });
 
   const start = useCallback(() => {
-    try {
-      setBest(Number(localStorage.getItem("bork-best") || 0));
-    } catch {}
-
     const g = game.current;
     g.x = g.target = W / 2;
     g.items = [];
@@ -180,13 +213,7 @@ export default function PuppyGamePage() {
   const endGame = useCallback(() => {
     const final = game.current.score;
     setPhase("over");
-    setBest((b) => {
-      const nb = Math.max(b, final);
-      try {
-        localStorage.setItem("bork-best", String(nb));
-      } catch {}
-      return nb;
-    });
+    saveBest(Math.max(getBest(), final));
   }, []);
 
   /* input: drag / touch anywhere on the canvas, or arrow keys */
