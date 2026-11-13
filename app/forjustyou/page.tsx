@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 /* ✏️ Edit these three lines and you're done */
 const HER_NAME = "Beautiful";
 const YOUR_NAME = "Prashuuuuuu";
-const QUESTION = "Can You Agree to the Agreement I sent you?";
+const QUESTION = "Can we go on a walk, like almost everyday?";
 
 const MOODS = ["🥹", "🥺", "😢", "😭", "🫠", "💀", "🤡", "🧎"];
 
