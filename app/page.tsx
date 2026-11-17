@@ -89,7 +89,7 @@ export default function Home() {
             </div>
 
             <div className="portrait-stage">
-              <Image
+              {/* <Image
                 className="portrait-cutout"
                 src="/AijeyshSharma.png"
                 alt="Aijeysh Sharma"
@@ -97,7 +97,7 @@ export default function Home() {
                 height={397}
                 priority
                 sizes="(max-width: 760px) 84vw, 38vw"
-              />
+              /> */}
               <span className="portrait-halo" aria-hidden="true" />
               <span
                 className="portrait-spark portrait-spark--one"
